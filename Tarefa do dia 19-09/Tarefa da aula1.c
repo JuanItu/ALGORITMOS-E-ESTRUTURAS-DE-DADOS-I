@@ -8,8 +8,8 @@ void remover_nome(char **todos_nomes, int *tamanho);
 void listar_nomes(char *todos_nomes);
 
 int main() {
-    char *todos_nomes = NULL; // String que guarda todos os nomes
-    int tamanho = 0;          // Tamanho atual da string
+    char *todos_nomes = NULL; 
+    int tamanho = 0;          
     int opcao;
 
     while (1) {
@@ -51,7 +51,7 @@ void adicionar_nome(char **todos_nomes, int *tamanho) {
     fgets(novo, sizeof(novo), stdin);
     novo[strcspn(novo, "\n")] = '\0';
 
-    int extra = strlen(novo) + 2; // +1 vírgula ou fim de string +1 '\0'
+    int extra = strlen(novo) + 2; 
     *todos_nomes = realloc(*todos_nomes, *tamanho + extra);
     if (*todos_nomes == NULL) {
         printf("Erro de memória!\n");
@@ -88,11 +88,11 @@ void remover_nome(char **todos_nomes, int *tamanho) {
 
     int len_alvo = strlen(alvo);
 
-    // caso tenha vírgula antes ou depois
+    
     if (pos > *todos_nomes && *(pos - 1) == ',') {
-        pos--; // remove vírgula antes
+        pos--; 
     } else if (*(pos + len_alvo) == ',') {
-        len_alvo++; // remove vírgula depois
+        len_alvo++; 
     }
 
     memmove(pos, pos + len_alvo, strlen(pos + len_alvo) + 1);
