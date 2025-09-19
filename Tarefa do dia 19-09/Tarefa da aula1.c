@@ -16,7 +16,7 @@ int main() {
         menu();
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
-        getchar(); // limpa \n
+        getchar(); // limpa  o meu \n
 
         switch (opcao) {
         case 1:
