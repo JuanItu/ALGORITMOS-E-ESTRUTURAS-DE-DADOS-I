@@ -6,8 +6,8 @@ int main() {
 
     printf("Escreva um numero: ");
 
-    scanf("%f", &num);
+    scanf("%f", &num );
     
-    printf("Este é o numero que você digitou: %.12f", num);
+    printf("Este é o numero que você digitou: %.2f", num );
     
 }
