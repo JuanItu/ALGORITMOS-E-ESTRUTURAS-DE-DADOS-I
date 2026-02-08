@@ -10,16 +10,16 @@
     #define FATOR_AUMENTO 2
 
     //acessando
-    int*get_total(void*pBuffer){return(int*)pBuffer;}
-    int*get_capacidade(void*pBuffer){return(int*)((char*)pBuffer+sizeof(int));}
-    int*get_indice_temp(void*pBuffer){return(int*)((char*)pBuffer+2*sizeof(int));}
-    int*get_flag_temp(void*pBuffer){return(int*)((char*)pBuffer+3*sizeof(int));}
-    int*get_opcao_menu(void*pBuffer){return(int*)((char*)pBuffer+4*sizeof(int));}  
-    char*get_termo_busca(void*pBuffer){return(char*)pBuffer+5*sizeof(int);}
-    char*get_base_dados(void*pBuffer){return(char*)pBuffer+TAM_CONTROLE;}
+    int*get_total(void*pBuffer){return(int*)pBuffer;}//total de pessoas 
+    int*get_capacidade(void*pBuffer){return(int*)((char*)pBuffer+sizeof(int));}//capacidade maxima atual
+    int*get_indice_temp(void*pBuffer){return(int*)((char*)pBuffer+2*sizeof(int));}//variavel temporaria de loop
+    int*get_flag_temp(void*pBuffer){return(int*)((char*)pBuffer+3*sizeof(int));}//variavel temporaria para fazer busqueda
+    int*get_opcao_menu(void*pBuffer){return(int*)((char*)pBuffer+4*sizeof(int));}//variavel temporaria da opção escolhida  
+    char*get_termo_busca(void*pBuffer){return(char*)pBuffer+5*sizeof(int);}//usa o ponteiro paro a string , para armazenar o nome a ser buscado
+    char*get_base_dados(void*pBuffer){return(char*)pBuffer+TAM_CONTROLE;}//ponteiro para o inicio da area de dados, apps a toda a area de controle
 
-    char*get_bloco_por_indice(void*pBuffer,int indice){
-        return get_base_dados(pBuffer)+(indice*TAM_PESSOA);
+    char*get_bloco_por_indice(void*pBuffer,int indice){//calcula o endereço de memoria onde os dados de uma pessoa especifica começam 
+        return get_base_dados(pBuffer)+(indice*TAM_PESSOA);//simula o acesso de um elemento array utilizando ponteiros, usando base da agenda + indice x Tam_pessoa.
     }
 
     void inicializar_pbuffer(void*pBuffer){
